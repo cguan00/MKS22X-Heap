@@ -57,9 +57,9 @@ public class MyHeap{
   }
 
   public static void swap(int[] data, int index1, int index2){
-    int temp = data[index2];
-    data[index2] = data[index1];
-    data[index1] = temp;
+    int temp = data[index2];//temporarily hold the value at index2
+    data[index2] = data[index1];//swap
+    data[index1] = temp;//swap
   }
 
 
