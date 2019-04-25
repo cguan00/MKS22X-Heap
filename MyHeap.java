@@ -43,7 +43,20 @@ public class MyHeap{
   // - push the element at index i up into the correct position. This will swap it with the parent node until the parent node is larger or the root is reached. [ should be O(logn) ]
   // - precondition: index is between 0 and data.length-1 inclusive.
   private static void pushUp(int[] data, int index){
-
+    boolean sorted = false;
+    while (!sorted){//while not sorted
+      int parentIndex = (index - 1) / 2;//holds the index of parent
+      if(parentIndex < 0){//if there is no parent
+        sorted = true;//this will exit the while loop
+      }
+      else{
+        if (data[index] > data[parentIndex]){//if child is greater than parent
+          swap(data, index, parentIndex);//swap parent and child
+          index = parentIndex;//update index to the parent index
+        }
+        else sorted = true;//if sorted, exit the while loop
+      }
+    }
   }
 
   // - convert the array into a valid heap. [ should be O(n) ]
