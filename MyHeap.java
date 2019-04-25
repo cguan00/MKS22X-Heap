@@ -27,10 +27,12 @@ public class MyHeap{
 
         if(max == data[index]){//if the maximum is the parent, then it's already sorted
           sorted = true;//this will exit the while loop
-        } else if(leftIndex < size && max == data[leftIndex]){
-          swap(data, index, leftIndex);
+        } else if(leftIndex < size && max == data[leftIndex]){//if the left child is the largest
+          swap(data, index, leftIndex);//swap parent and left child
+          index = leftIndex;//update index to be the left child
         } else if(rightIndex < size && max == data[rightIndex]){
-          swap(data, index, rightIndex);
+          swap(data, index, rightIndex);//swap parent and right child
+          index = rightIndex;//update index to be the right child
         }
 
       }
@@ -52,6 +54,12 @@ public class MyHeap{
   // - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
   public static void heapsort(int[] data){
 
+  }
+
+  public static void swap(int[] data, int index1, int index2){
+    int temp = data[index2];
+    data[index2] = data[index1];
+    data[index1] = temp;
   }
 
 
