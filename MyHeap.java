@@ -34,10 +34,8 @@ public class MyHeap{
           swap(data, index, rightIndex);//swap parent and right child
           index = rightIndex;//update index to be the right child
         }
-
       }
     }
-
   }
 
   // - push the element at index i up into the correct position. This will swap it with the parent node until the parent node is larger or the root is reached. [ should be O(logn) ]
@@ -66,7 +64,7 @@ public class MyHeap{
 
   // - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
   public static void heapsort(int[] data){
-
+    heapify(data);//convert the array to a heap
   }
 
   public static void swap(int[] data, int index1, int index2){
