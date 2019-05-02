@@ -59,7 +59,10 @@ public class MyHeap{
 
   // - convert the array into a valid heap. [ should be O(n) ]
   public static void heapify(int[] data){
-
+    int size = data.length;//keep track of size of the array
+    for(int i = size - 1; i > -1; i--){
+      pushDown(data, size, i);//keep pushing down into the right index
+    }
   }
 
   // - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
