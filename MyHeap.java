@@ -67,7 +67,11 @@ public class MyHeap{
 
   // - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
   public static void heapsort(int[] data){
-    heapify(data);//convert the array to a heap
+    heapify(data);//turn data into a heap
+    for (int i = data.length - 1; i > -1; i--){
+      swap(data, i, 0);
+      pushDown(data, i, 0);//pushdown the top element, size of the heap is equal to index
+    }
   }
 
   public static void swap(int[] data, int index1, int index2){
@@ -75,6 +79,8 @@ public class MyHeap{
     data[index2] = data[index1];//swap
     data[index1] = temp;//swap
   }
+
+  
 
 
 
