@@ -34,10 +34,8 @@ public class MyHeap{
           swap(data, index, rightIndex);//swap parent and right child
           index = rightIndex;//update index to be the right child
         }
-
       }
     }
-
   }
 
   // - push the element at index i up into the correct position. This will swap it with the parent node until the parent node is larger or the root is reached. [ should be O(logn) ]
@@ -45,12 +43,12 @@ public class MyHeap{
   private static void pushUp(int[] data, int index){
     boolean sorted = false;
     while (!sorted){//while not sorted
-      int parentIndex = (index - 1) / 2;//parent index
+      int parentIndex = (index - 1) / 2;//holds the index of parent
       if(parentIndex < 0){//if there is no parent
         sorted = true;//this will exit the while loop
       }
       else{
-        if(data[index] > data[parentIndex]){//if child is greater than parent
+        if (data[index] > data[parentIndex]){//if child is greater than parent
           swap(data, index, parentIndex);//swap parent and child
           index = parentIndex;//update index to the parent index
         }
@@ -61,16 +59,18 @@ public class MyHeap{
 
   // - convert the array into a valid heap. [ should be O(n) ]
   public static void heapify(int[] data){
-    int size = data.length;//keep track of size of the array
-    for(int i = size - 1; i > -1; i--){
-      pushDown(data, size, i);//keep pushing down into the right index
-    }
+
+  }
+
+  // - sort the array by converting it into a heap then removing the largest value n-1 times. [ should be O(nlogn) ]
+  public static void heapsort(int[] data){
+    heapify(data);//convert the array to a heap
   }
 
   public static void swap(int[] data, int index1, int index2){
-    int temp = data[index1];//temporarily hold the value at index2
-    data[index1] = data[index2];//swap
-    data[index2] = temp;//swap
+    int temp = data[index2];//temporarily hold the value at index2
+    data[index2] = data[index1];//swap
+    data[index1] = temp;//swap
   }
 
 
